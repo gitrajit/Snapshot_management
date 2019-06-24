@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Snapshot Management</title>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<style>
+div.dataTables_wrapper {
+margin-bottom: 3em;
+}
+
+</style>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" class="init">
+$(document).ready(function() {
+    var table = $('table.display').DataTable( {
+
+
+        "iDisplayLength": 10,
+
+    } );
+} );
+</script>
+<style type="text/css">
+                .div-outer {
+                    margin: auto;
+                     min-width:200px;
+                    max-width:1024px;
+
+                }
+                .voffset  { margin-top: 2px; }
+.voffset1 { margin-top: 8px; }
+.voffset2 { margin-top: 10px; }
+.voffset3 { margin-top: 15px; }
+.spancss {
+      color: #2471A3;
+  font-size: 16px;
+  font-weight: bold;
+}
+legend.legendStyle {
+padding-left: 5px;
+padding-right: 5px;
+}
+fieldset.fsStyle {
+font-family: Verdana, Arial, sans-serif;
+font-size: small;
+font-weight: normal;
+border: 1px solid #999999;
+padding-left: 14px;
+padding-right: 14px;
+padding-bottom: 14px;
+margin-top: 9px;
+background-color: white;
+}
+legend.legendStyle {
+font-size: 90%;
+color: white;
+background-color: transparent;
+font-weight: bold;
+}
+
+legend {
+width: auto;
+border-bottom: 0px;
+}
+.force_hide{
+                display:none;
+            }
+
+            .input-sm {
+      border: 1px solid black;
+
+}
+
+input{
+    font-size:10px
+}
+div.container {
+        width: 100%;
+    }
+
+
+
+</style>
+
+</head>
+<body>
+<div class="container">
+    <div>
+
+                    <fieldset class="fsStyle">
+                    <legend class="legendStyle">
+                    <span class="spancss">Snapshot older than {{ hrd }} hours.</span>
+                    </legend>
+
+                                    <table class="display" cellspacing="0" width="99%" border="1">
+                                                <thead class="bg-primary">
+                                                <tr>
+                                                    <th>Vcenter Name</th>
+                                                    <th>VM Name</th>
+                                                    <th>Snapshot Name</th>
+                                                    <th>Created Time</th>
+                                                    <th>Hour</th>
+                                                    <th>Description </th>
+                                                </tr>
+                                                </thead>
+
+                                               <tbody>
+                                               {% for i in data %}
+
+                                              <tr>
+                                                    <td>{{ i.split(';')[0].strip() }}</td>
+                                                    <td>{{ i.split(';')[1].strip() }}</td>
+                                                    <td>{{ i.split(';')[2].strip() }}</td>
+                                                    <td>{{ i.split(';')[3].strip() }}</td>
+                                                    <td>{{ i.split(';')[4].strip() }}</td>
+                                                    <td>{{ i.split(';')[5].strip() }}</td>
+                                                </tr>
+
+                                                {% endfor %}
+
+                                               </tbody>
+                                    </table>
+
+
+                        </fieldset>
+                                    </div>
+</div></body>
+<div id ="footer" align="center">&copy 2019 Amadeus TPE ICS BLR Automation</div>
+</html>

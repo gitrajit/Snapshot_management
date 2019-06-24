@@ -132,7 +132,7 @@ def create_html(data,hrd):
         root = os.path.dirname(os.path.abspath(__file__))
         templates_dir = os.path.join(root, 'templates')
         env = Environment(loader=FileSystemLoader(templates_dir))
-        template = env.get_template('s.html')
+        template = env.get_template('snapshot_template.html')
         filename = os.path.join(root, 'Snapshot_report' + now1 +'.html')
         with open(filename, 'w') as fh:
             fh.write(template.render(data=data,hrd=hrd))

@@ -14,7 +14,7 @@ import argparse
 import getpass
 reload(sys)
 sys.setdefaultencoding('utf8')
-__author__='Gitrajit-singh.takhelmayum@amadeus.com'
+__author__='gitrajit@gmail.com'
 __version__=1.0
 
 import logging
